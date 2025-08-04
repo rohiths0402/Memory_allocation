@@ -14,7 +14,7 @@ FILE *logFile = NULL;
 
 int LogEvent(const char *action, void *address, size_t size){
     if (!logFile){
-        logFile = fopen("memory_log.txt", "a");
+        logFile = fopen("memoryLog.txt", "a");
         if (!logFile){
             fprintf(stderr, "Error opening log file.\n");
             return 1;
@@ -51,7 +51,7 @@ MemoryNode *FindeValue(void *address){
 
 void *TrackMalloc(size_t size){
     if (size == 0){
-        LogEvent("MALLOC_ZERO", NULL, 0);
+        LogEvent("MALLOCZERO", NULL, 0);
         return NULL;
     }
     void *ptr = malloc(size);
